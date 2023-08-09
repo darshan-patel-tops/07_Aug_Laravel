@@ -1,6 +1,7 @@
 <?php
 
 //it is used for debugging
+//index array
 $array = ["pathik","saurav","shreynash","ankit","jaimin",100,100.100,false,true];
 
 
