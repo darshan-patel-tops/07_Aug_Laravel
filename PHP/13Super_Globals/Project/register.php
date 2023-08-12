@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 //? is used for query string
@@ -11,6 +14,7 @@ if(isset($_REQUEST['reg_btn']))
   // print_r($_REQUEST); 
   // echo "</pre>";
   
+  // mail("darshan.patel.tops@gmail.com","Check mail","hello from check mail");
   setcookie("username",$_REQUEST['username'],time()+3600,"");
   setcookie("email",$_REQUEST['email'],time()+3600,"");
   setcookie("password",$_REQUEST['password'],time()+3600,"");
@@ -61,7 +65,7 @@ if(isset($_REQUEST['reg_btn']))
     <input type="password" class="form-control mt-3" id="password" name="password" placeholder="Password">
   </div>
  
-  <button type="submit" class="btn btn-success mt-3" name="`reg_btn`">Register</button>
+  <button type="submit" class="btn btn-success mt-3" name="reg_btn">Register</button>
 </form>
 
 </div>
