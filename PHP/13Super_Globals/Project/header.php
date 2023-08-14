@@ -1,3 +1,18 @@
+<?php
+
+
+
+
+
+
+session_start();
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +41,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="productupload.php">Product Upload</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="cart.php">Add To Cart </a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="home.php">Home</a>
