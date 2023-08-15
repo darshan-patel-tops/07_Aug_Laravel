@@ -2,9 +2,15 @@
 
 
 <?php
-
-//? is used for query string
+if(isset($_SESSION['userinfo']))
+{
+  echo "inside if";
+  header("location:home.php");
+  exit();
+  // ec
+}
 require_once('header.php');
+//? is used for query string
 
 if(isset($_REQUEST['reg_btn']))
 {

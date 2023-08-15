@@ -1,7 +1,18 @@
 <?php
-
-//? is used for query string
 require_once('header.php');
+echo "<pre>";
+print_r($_COOKIE);
+print_r($_SESSION);
+echo "</pre>";
+
+if(isset($_SESSION['userinfo']))
+{
+  echo "inside if";
+  header("location:home.php");
+  exit();
+  // ec
+}
+//? is used for query string
 
 if(isset($_REQUEST['login']))
 {
@@ -11,7 +22,11 @@ if(isset($_REQUEST['login']))
     if($_REQUEST['email'] == $_COOKIE['email'] && $_REQUEST['password'] == $_COOKIE['password'])
     {
         // echo "Login Success";
-    
+        $_SESSION["userinfo"] = 
+        [
+          "name"=>$_REQUEST['email'],
+          "password"=>$_REQUEST['password']
+        ];
         header("location:home.php");
     }
     else

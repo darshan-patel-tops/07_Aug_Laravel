@@ -1,5 +1,12 @@
 <?php
 
+// echo "<pre>";
+// $_ENV = getenv();
+// print_r($_ENV);
+// print_r($_SERVER);
+// echo "</pre>";
+
+
 // session_start();
 
 // require('header1.php');
@@ -8,11 +15,11 @@
 // require('header.php');
 // require('header.php');
 // require('footer.php');
+// require_once('header.php');
+// require_once('header.php');
+// require_once('header.php');
+// require_once('header.php');
 require_once('header.php');
-// require_once('header.php');
-// require_once('header.php');
-// require_once('header.php');
-// require_once('header.php');
 // require_once('register1.php');
 
 
@@ -52,6 +59,7 @@ if(isset($_REQUEST["add"]))
 }
 echo "<pre>";
 // print_r($_SESSION['cartdata']);
+print_r($_SESSION);
 echo "</pre>";
 
 

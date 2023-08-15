@@ -4,7 +4,7 @@
 
 
 
-
+// echo time();
 session_start();
 
 
@@ -56,8 +56,22 @@ session_start();
             Dropdown
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="login.php">Login</a></li>
-            <li><a class="dropdown-item" href="register.php">Register</a></li>
+            <?php
+            if(isset($_SESSION['userinfo']))
+            {
+              echo "<li><a class='dropdown-item' href='logout.php'>Logout</a></li>";
+              
+            }
+            else
+            {
+              "<li><a class='dropdown-item' href='login.php'>Login</a></li>";
+              "<li><a class='dropdown-item' href='register.php'>Register</a></li>";
+            }
+            
+            
+            ?>
+            <!-- <li><a class="dropdown-item" href="login.php">Login</a></li>
+            <li><a class="dropdown-item" href="register.php">Register</a></li> -->
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
