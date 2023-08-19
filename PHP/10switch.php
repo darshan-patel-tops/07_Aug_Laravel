@@ -22,6 +22,9 @@ switch($name)
         echo "saurav";
         break;
 
+    default :
+        echo "invalid name";
+
 }
 
 

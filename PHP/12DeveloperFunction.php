@@ -7,7 +7,7 @@ $array = ["pathik","saurav","shreynash","ankit","jaimin",100,100.100,false,true]
 
 //Associative Array
 //comes with key and value pair
-$array2 = ["name"=>"ankit","age"=>27,"education"=>"B.com","salary"=>10000000];
+$array2 = ["name"=>"ankit","age"=>27,"education"=>"B.com","salary"=>10000000,True];
 
 
 foreach($array2 as $key => $value)
@@ -21,7 +21,7 @@ echo "<pre>";
 print_r($array);
 print_r($array2);
 
-// var_dump($array);
+// var_dump($array2);
 // var_export($array);
 
 
