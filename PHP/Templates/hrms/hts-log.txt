@@ -1,0 +1,20 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 02 Aug 2023 11:51:43 at https://smarthr.dreamguystech.com/html/template/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://smarthr.dreamguystech.com/html/template/index.html -O1 "C:\HTTrack\hrms" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+11:52:33	Warning: 	File not parsed, looks like binary: https://smarthr.dreamguystech.com/html/template/assets/plugins/fontawesome/webfonts/fa-brands-400.woff2
+11:52:33	Warning: 	File not parsed, looks like binary: https://smarthr.dreamguystech.com/html/template/assets/plugins/fontawesome/webfonts/fa-regular-400.woff2
+11:52:33	Warning: 	File not parsed, looks like binary: https://smarthr.dreamguystech.com/html/template/assets/plugins/fontawesome/webfonts/fa-solid-900.woff2
+11:52:33	Warning: 	File not parsed, looks like binary: https://smarthr.dreamguystech.com/html/template/assets/plugins/fontawesome/webfonts/fa-v4compatibility.woff2
+11:52:33	Warning: 	File not parsed, looks like binary: https://smarthr.dreamguystech.com/html/template/assets/fonts/la-brands-400.woff2
+11:52:34	Warning: 	File not parsed, looks like binary: https://smarthr.dreamguystech.com/html/template/assets/fonts/la-regular-400.woff2
+11:52:34	Warning: 	File not parsed, looks like binary: https://smarthr.dreamguystech.com/html/template/assets/fonts/la-solid-900.woff2
+11:52:35	Warning: 	File not parsed, looks like binary: https://smarthr.dreamguystech.com/html/template/assets/fonts/MaterialIcons-Regular.woff2
+11:53:03	Error: 	"Not Found" (404) at link https://smarthr.dreamguystech.com/html/template/assets/img/github.svg (from https://smarthr.dreamguystech.com/html/template/assets/css/ckeditor.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 20 seconds : 298 links scanned, 296 files written (19599624 bytes overall) [6234602 bytes received at 77932 bytes/sec], 18010614 bytes transferred using HTTP compression in 234 files, ratio 24%, 149.0 requests per connection
+(1 errors, 8 warnings, 0 messages)
