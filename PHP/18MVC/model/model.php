@@ -18,11 +18,11 @@ class model
         {
 
             $this->connection = new mysqli("localhost","root","","07_aug_laravel");
-            echo "Connection was  successful";
+            // echo "Connection was  successful";
         }
         catch(\Throwable $th)
         {
-            echo "Connection was not successful";
+            // echo "Connection was not successful";
         }
     }
 
@@ -41,8 +41,33 @@ class model
             // echo "Inside model<br>";
         // echo $data;
 
+
+
+        array_pop($data);
+        
+        $keysdata = array_keys($data);
+        $valuesdata = array_values($data);
+
+        $keysdata = implode(",",$keysdata);
+        $valuesdata = implode("','",$valuesdata);
+
         echo "<pre>";
-        print_r($data);
+        // print_r($keysdata);
+        echo "<br>";
+        // print_r($valuesdata);
+        echo "<br>";
+
+
+            $sql = "INSERT INTO users ($keysdata) VALUES ('$valuesdata')";
+            // $sql2 = "INSERT INTO users (name,username,email,password) VALUES ('$data[name]','$data[username]','$data[email]','$data[password]')";
+            // echo $sql2;
+            // echo $sql;
+
+            // $this->connection->query($sql);
+
+        // print_r(array_keys($data));
+        // print_r(array_values($data));
+        // print_r($data);
         echo "</pre>";
     } 
 }
