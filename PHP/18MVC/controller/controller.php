@@ -4,8 +4,9 @@
 
 <?php
 
+require_once("model/model.php");
 
-class controller
+class controller extends model
 {
 
     public $baseurl = "http://localhost/Batches/07_Aug_Laravel/PHP/18MVC/assets/";
@@ -15,7 +16,7 @@ class controller
 
 public function __construct()
 {
-
+    parent::__construct();
 
 
         // echo "<pre>";
@@ -48,6 +49,17 @@ public function __construct()
                         
                 case "/register":
                         // require_once("view/header.php");
+                        if(isset($_REQUEST['reg_btn']))
+                         {
+
+                            $data = $_REQUEST;
+                            $this->register($data);
+                            // echo "<pre>";
+                            // print_r($_REQUEST);
+                            // echo "</pre>";
+
+                         }
+
                         require_once("view/register.php");
                         // require_once("view/footer.php");
 

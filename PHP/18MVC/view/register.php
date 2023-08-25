@@ -1,9 +1,12 @@
 <?php
 
+// if(isset($_REQUEST['reg_btn']))
+// {
+//   echo "<pre>";
+//   print_r($_REQUEST);
+//   echo "</pre>";
 
-echo "<pre>";
-print_r($_REQUEST);
-echo "</pre>";
+// }
 
 
 ?>
@@ -39,7 +42,7 @@ echo "</pre>";
         <h3>I accept all terms & condition</h3>
       </div> -->
       <div class="input-box button">
-        <input type="Submit" value="Register">
+        <input type="Submit" value="Register" name="reg_btn">
       </div>
       <div class="text">
         <h3>Already have an account? <a href="login">Login now</a></h3>
