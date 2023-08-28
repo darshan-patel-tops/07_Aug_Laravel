@@ -63,7 +63,7 @@ class model
             // echo $sql2;
             // echo $sql;
 
-            // $this->connection->query($sql);
+            $this->connection->query($sql);
 
         // print_r(array_keys($data));
         // print_r(array_values($data));
