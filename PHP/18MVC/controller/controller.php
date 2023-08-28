@@ -10,6 +10,7 @@ class controller extends model
 {
 
     public $baseurl = "http://localhost/Batches/07_Aug_Laravel/PHP/18MVC/assets/";
+    public $adminurl = "http://localhost/Batches/07_Aug_Laravel/PHP/18MVC/assets/admin";
     public $url = "http://localhost/Batches/07_Aug_Laravel/PHP/18MVC/assets/";
     // public $baseurl = "http://localhost/Batches\07_Aug_Laravel\PHP\18MVC\assets";
 
@@ -75,7 +76,10 @@ public function __construct()
                         break;
 
                 case "/admin-dashboard":
+
+                        require_once("view/admin/adminheader.php");
                         echo "Admin Page";
+                        require_once("view/admin/adminfooter.php");
                         break;
                     }
         }
