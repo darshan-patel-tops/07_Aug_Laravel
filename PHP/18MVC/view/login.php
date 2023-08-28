@@ -1,37 +1,45 @@
+<?php
+
+// if(isset($_REQUEST['reg_btn']))
+// {
+//   echo "<pre>";
+//   print_r($_REQUEST);
+//   echo "</pre>";
+
+// }
+
+
+?>
+
+
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Registration</title> 
+    <title> Login </title> 
     <link rel="stylesheet" href="style.css">
    </head>
 <body>
   <div class="wrapper">
     <h2>Login</h2>
-    <form action="#">
+    <form action="" method="post">
       <div class="input-box">
-        <input type="text" placeholder="Enter your name" required>
+        <input type="text" name="username" placeholder="Enter Your Username/Email" required>
       </div>
       <div class="input-box">
-        <input type="text" placeholder="Enter your email" required>
+        <input type="password" placeholder="Enter Your password" name="password" required>
       </div>
-      <div class="input-box">
-        <input type="password" placeholder="Create password" required>
-      </div>
-      <div class="input-box">
-        <input type="password" placeholder="Confirm password" required>
-      </div>
-      <div class="policy">
+      <!-- <div class="policy">
         <input type="checkbox">
         <h3>I accept all terms & condition</h3>
-      </div>
+      </div> -->
       <div class="input-box button">
-        <input type="Submit" value="Login">
+        <input type="Submit" value="Login" name="login_btn">
       </div>
       <div class="text">
-        <h3>New Here?<a href="register">Sign-up now</a></h3>
+        <h3>New Here? <a href="register">Register now</a></h3>
       </div>
     </form>
   </div>
@@ -51,6 +59,9 @@ body{
   align-items: center;
   justify-content: center;
   background: #787A7E;
+  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg"); */
+  background-image: url("https://www.allrecipes.com/thmb/iXKYAl17eIEnvhLtb4WxM7wKqTc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/240376-homemade-pepperoni-pizza-Beauty-3x4-1-6ae54059c23348b3b9a703b6a3067a44.jpg");
+
 }
 .wrapper{
   position: relative;

@@ -64,12 +64,66 @@ class model
             // echo $sql;
 
             $this->connection->query($sql);
-
+            header("location:login");
         // print_r(array_keys($data));
         // print_r(array_values($data));
         // print_r($data);
         echo "</pre>";
     } 
+
+
+
+
+    public function login($data)
+    {
+        if(isset($data['login_btn']))
+        {
+            print_r($data);
+            // echo "inside if";
+
+
+
+            $SQL = "SELECT * FROM users WHERE (email = '$data[username]' OR username = '$data[username]')
+                AND password = '$data[password]';";
+        // echo $SQL;    
+          $sqlex = $this->connection->query($SQL);
+        //   echo "<pre>";
+        //   print_r($sqlex);
+        //   echo "</pre>";
+        
+        if($sqlex->num_rows > 0)
+        {
+            $userdata = $sqlex->fetch_object();
+            // echo "Login Success";
+            // echo "<pre>";
+            // print_r($userdata);
+            // echo "</pre>";
+            if($userdata->role_as == 1)
+            {
+                echo "Admin side";
+                header("location:admin-dashboard");
+            }
+            else
+            {
+                // echo "User side";
+                header("location:home");
+            }
+
+        }
+        else
+        {
+            // echo "Login Failed";
+            echo "<script> alert('Invalid Username or Password')  </script>";
+
+        }
+    
+    }
+        else
+        {
+            // echo "inside else";
+
+        }
+    }
 }
 
 

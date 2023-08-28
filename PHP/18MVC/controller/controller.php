@@ -66,8 +66,18 @@ public function __construct()
                     break;
 
                 case "/login":
+
+                        // print_r($_REQUEST);
+                        $data = $_REQUEST;
+                        $this->login($data);
+
                         require_once("view/login.php");
-                }
+                        break;
+
+                case "/admin-dashboard":
+                        echo "Admin Page";
+                        break;
+                    }
         }
         else
         {
