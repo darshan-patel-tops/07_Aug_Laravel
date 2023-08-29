@@ -9,30 +9,24 @@
 <body>
     
 
-<h1>Check Data</h1>
-
-
-<form action="" method="post">
-
-
-<input type="text" name="username" id="username" placeholder="Enter Your Username" onblur="checkusername()">
-<div id="username_msg">
+<div class="data" id="data">
 
 </div>
-<input type="text" name="name" id="name" placeholder="Enter Your Name" >
-<input type="text" name="password" id="password" placeholder="Enter Your Password" >
-<button>Submit</button>
-</form>
-
-
-
 <script>
 
+function display()
+{
+    var data = ""
+    data = document.getElementById("data").innerHTML = "<h1>Welcome To displaying Data Without HTML Code</h1>";
 
-
-var value = "ADMIN"
-console.log("Welcome To check Data Lecture ",value);
-
+    data += `
+        <form method="post">   
+        <input type="text" name="username" id="username" placeholder="Enter name" onblur="checkusername()">
+        <div id="username_msg"> </div>
+        </form>
+    `
+    document.getElementById("data").innerHTML = data;
+}
 
 function checkusername()
 {
@@ -60,8 +54,7 @@ function checkusername()
 
 }
 
-
-
+display()
 
 </script>
 
