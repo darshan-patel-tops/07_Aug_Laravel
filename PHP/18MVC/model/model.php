@@ -26,6 +26,57 @@ class model
         }
     }
 
+
+    public function delete($table,$id)
+    {
+        $SQL = "DELETE FROM $table WHERE id = $id";
+        // echo $SQL;
+        // echo "$table $id";
+        // exit;
+
+
+        $this->connection->query($SQL);
+        header("location:$_SERVER[PHP_SELF]");
+
+        // header
+    }
+
+
+public function select($table)
+{
+    $SQL = "SELECT * FROM $table";
+    // echo $SQL;
+    // exit;
+
+
+    $SQLEX = $this->connection->query($SQL);
+    // print_r($SQLEX);
+    // exit;
+    
+
+    if($SQLEX->num_rows > 0)
+    {
+
+        // $data = $SQLEX->fetch_object();
+        // $data = $SQLEX->fetch_all();
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+
+        while($data = $SQLEX->fetch_object())
+        {
+            $datas[] = $data;
+        }
+        // echo "<pre>";
+        // print_r($datas);
+
+        return $datas;
+
+        // exit;
+
+    }
+}
+
     public function register($data)
     {
 

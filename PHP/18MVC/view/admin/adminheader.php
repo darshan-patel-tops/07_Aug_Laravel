@@ -148,7 +148,14 @@
                 </a>
             </li>
             
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Users</span></li>
+           
+            <li class="menu-item active">
+                <a href="admin/users" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">users</div>
+                </a>
+            </li>
            
           </ul>
         </aside>

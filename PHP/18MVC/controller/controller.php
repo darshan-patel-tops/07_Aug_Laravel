@@ -78,10 +78,32 @@ public function __construct()
                 case "/admin-dashboard":
 
                         require_once("view/admin/adminheader.php");
-                        echo "Admin Page";
+                        require_once("view/admin/adminhome.php");
+                        // echo "Admin Page";
+
                         require_once("view/admin/adminfooter.php");
                         break;
-                    }
+
+
+                        case "/admin/users":
+                           $fetch =  $this->select("users");
+                        //    echo "<pre>";
+                        //    echo "from controller";
+                        //    print_r($fetch);
+                        //    exit;
+                        if(isset($_REQUEST['delete_btn']))
+                        {
+                            $this->delete("users","$_REQUEST[delete_btn]");
+                        }
+                        require_once("view/admin/adminheader.php");
+                        require_once("view/admin/allusers.php");
+                        // echo "Admin Page";
+                        // print_r($_REQUEST);
+                        
+    
+                            require_once("view/admin/adminfooter.php");
+                            break;
+                        }
         }
         else
         {
