@@ -43,7 +43,10 @@
             <td><?php echo $value->password ?></td>
             <td><?php echo $value->role_as ?></td>
             <td>
-              <button class="btn-primary btn-sm">Update</button>
+              <form action="update-user" method="post">
+
+                <button class="btn-primary btn-sm" name="update_btn" value="<?php echo $value->id; ?>">Update</button>
+              </form>
               <form action="" method="post">
                 <button type="submit" name="delete_btn" value="<?php echo $value->id ?>" class="mt-2 btn-danger btn-sm">Delete</button>
               </form>

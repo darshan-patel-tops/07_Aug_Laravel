@@ -84,17 +84,54 @@ public function __construct()
                         require_once("view/admin/adminfooter.php");
                         break;
 
+                    case "/admin/update-user":
+                        if(isset($_REQUEST['update_btn']))
+                        {
+                            echo "<pre>";
+                            // print_r($_REQUEST);
+                            $response = $this->selectwhere("users",$_REQUEST["update_btn"]);
+                            // print_r($response);
+                            echo "</pre>";
+                            // exit;
+                            require_once("view/admin/adminheader.php");
+                            require_once("view/admin/updateuser.php");
+                            require_once("view/admin/adminfooter.php");
+                           
+                            
+                        }
+                        else if(isset($_REQUEST["update"]))
+                        {
+                            // print_r($_REQUEST);
+                            $data = array(
+                                "name"=>$_REQUEST["name"],
+                                "email"=>$_REQUEST["email"],
+                                "password"=>$_REQUEST["password"],
+                                "username"=>$_REQUEST["username"],
+                            );
+                            $response =$this->update("users",$data ,$_REQUEST["update"]);
+                            echo $response;
+                            header("location:users");    
+                        }
+                        else
+                        {
+                            header("location:admin-dashbaord");
+                        }
 
+                        break;
                         case "/admin/users":
                            $fetch =  $this->select("users");
                         //    echo "<pre>";
                         //    echo "from controller";
                         //    print_r($fetch);
+                        //    print_r($_SERVER);
                         //    exit;
                         if(isset($_REQUEST['delete_btn']))
                         {
                             $this->delete("users","$_REQUEST[delete_btn]");
                         }
+                        
+                       
+
                         require_once("view/admin/adminheader.php");
                         require_once("view/admin/allusers.php");
                         // echo "Admin Page";

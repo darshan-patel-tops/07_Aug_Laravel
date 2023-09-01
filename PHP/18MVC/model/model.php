@@ -27,6 +27,55 @@ class model
     }
 
 
+
+    public function update($tbl,$values,$id)
+    {
+        echo "<pre>";
+        print_r($values);
+        $SQL = " UPDATE $tbl SET ";
+        foreach($values as $key => $value)
+        {
+            $SQL .= " $key = '$value' , ";
+        }
+        $SQL = rtrim($SQL," , ");
+        
+        $SQL .= " WHERE id = $id";
+        // echo $SQL;
+        $sqlex = $this->connection->query($SQL);
+        if($sqlex->num_rows > 0)
+        {
+            $data = "Updated successfully";
+        }
+        else
+        {
+            $data = "Something went wrong";
+            // echo $data;
+        }
+        return $data;
+    }
+
+
+public function selectwhere($tbl,$id)
+{
+    $SQL = "SELECT * FROM $tbl WHERE id = $id";
+    // echo $SQL;
+    $sqlex = $this->connection->query($SQL);
+    // exit;
+    if($sqlex->num_rows > 0)
+    {
+        $data = $sqlex->fetch_object();
+        // print_r($data);
+        // exit;
+    }
+    else 
+    {
+        $data = "Something Went Wrong";
+        // return $data;
+    }
+    return $data;
+    // print_r($sqlex);
+    // exit;
+}
     public function delete($table,$id)
     {
         $SQL = "DELETE FROM $table WHERE id = $id";
@@ -36,7 +85,7 @@ class model
 
 
         $this->connection->query($SQL);
-        header("location:$_SERVER[PHP_SELF]");
+        // header("location:$_SERVER[PHP_SELF]");
 
         // header
     }
