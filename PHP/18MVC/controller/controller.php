@@ -89,6 +89,7 @@ public function __construct()
                         {
                             echo "<pre>";
                             // print_r($_REQUEST);
+                            // print_r($_FILES);
                             $response = $this->selectwhere("users",$_REQUEST["update_btn"]);
                             // print_r($response);
                             echo "</pre>";
@@ -101,12 +102,30 @@ public function __construct()
                         }
                         else if(isset($_REQUEST["update"]))
                         {
+                            // echo "<pre>";
                             // print_r($_REQUEST);
+                            // print_r($_FILES);
+                            // echo "</pre>";
+                            // exit();
+                            // print_r($_REQUEST);
+
+                            if(isset($_FILES))
+                            {
+                                $image = "uploads/".time().$_FILES['image']["name"];
+                                move_uploaded_file($_FILES['image']['tmp_name'],$image);
+                            }
+                            else
+                            {
+                                    
+                            }
+
+                            // exit();
                             $data = array(
                                 "name"=>$_REQUEST["name"],
                                 "email"=>$_REQUEST["email"],
                                 "password"=>$_REQUEST["password"],
                                 "username"=>$_REQUEST["username"],
+                                "image" => $image 
                             );
                             $response =$this->update("users",$data ,$_REQUEST["update"]);
                             echo $response;

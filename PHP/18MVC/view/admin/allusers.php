@@ -39,7 +39,7 @@
             <td><?php echo $value->name ?></td>
             <td><?php echo $value->email ?></td>
             <td><?php echo $value->username ?></td>
-            <td><img src="" alt="No Profile Picture Found"><?php echo $value->image ?></td>
+            <td><img src="../<?php echo $value->image ?>" alt="No Profile Picture Found" height="70" width="70px"></td>
             <td><?php echo $value->password ?></td>
             <td><?php echo $value->role_as ?></td>
             <td>
