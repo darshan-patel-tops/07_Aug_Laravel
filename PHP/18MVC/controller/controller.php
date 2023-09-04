@@ -109,14 +109,16 @@ public function __construct()
                             // exit();
                             // print_r($_REQUEST);
 
-                            if(isset($_FILES))
+                            // if($_FILES['image']['name'] != null  )
+                            // if($_FILES['image']['error'] == 0  )
+                            if($_FILES['image']['error'] == UPLOAD_ERR_OK  )
                             {
                                 $image = "uploads/".time().$_FILES['image']["name"];
                                 move_uploaded_file($_FILES['image']['tmp_name'],$image);
                             }
                             else
                             {
-                                    
+                               $image = $_REQUEST["old_profile_pic"];
                             }
 
                             // exit();
