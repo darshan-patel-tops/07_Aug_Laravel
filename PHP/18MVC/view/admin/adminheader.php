@@ -149,11 +149,18 @@
             </li>
             
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Users</span></li>
-           
+            
             <li class="menu-item active">
-                <a href="admin/users" class="menu-link">
+              <a href="admin/users" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Users</div>
+              </a>
+            </li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Products</span></li>
+            <li class="menu-item active">
+                <a href="admin/products" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                    <div data-i18n="Analytics">users</div>
+                    <div data-i18n="Analytics">Products</div>
                 </a>
             </li>
            

@@ -27,6 +27,37 @@ class model
     }
 
 
+    public function insert($tbl,$data)
+    {
+
+        
+
+        // array_pop($data);
+        
+        $keysdata = array_keys($data);
+        $valuesdata = array_values($data);
+
+        $keysdata = implode(",",$keysdata);
+        $valuesdata = implode("','",$valuesdata);
+
+        echo "<pre>";
+        // print_r($keysdata);
+        echo "<br>";
+        // print_r($valuesdata);
+        echo "<br>";
+
+
+            $sql = "INSERT INTO $tbl ($keysdata) VALUES ('$valuesdata')";
+            echo $sql;
+            // $sql2 = "INSERT INTO users (name,username,email,password) VALUES ('$data[name]','$data[username]','$data[email]','$data[password]')";
+            // echo $sql2;
+            $this->connection->query($sql);
+            header("location:products");
+        // print_r(array_keys($data));
+        // print_r(array_values($data));
+        // print_r($data);
+        echo "</pre>";
+    } 
 
     public function update($tbl,$values,$id)
     {

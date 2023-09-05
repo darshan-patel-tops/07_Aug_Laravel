@@ -17,80 +17,32 @@
 						</h3>
 
 						<!-- Item mainmenu -->
+						<?php foreach($menus as $menu)
+						{
+							?>
+						
 						<div class="item-mainmenu m-b-36">
 							<div class="flex-w flex-b m-b-3">
 								<a href="#" class="name-item-mainmenu txt21">
-									Pine nut sbrisalona
+									<?php echo $menu->name ?>
 								</a>
-
+								
 								<div class="line-item-mainmenu bg3-pattern"></div>
-
+								
 								<div class="price-item-mainmenu txt22">
-									$29.79
+									<img src="<?php echo $menu->image; ?>" alt="" height="50px" width="50px">
+									<?php echo $menu->price ?>
+									<!-- $29.79 -->
 								</div>
 							</div>
-
+							
 							<span class="info-item-mainmenu txt23">
-								Sed fermentum eros vitae eros
+								<?php echo $menu->description ?>
+								<!-- Sed fermentum eros vitae eros -->
 							</span>
 						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21">
-									Aenean eu
-								</a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-								<div class="price-item-mainmenu txt22">
-									$19.35
-								</div>
-							</div>
-
-							<span class="info-item-mainmenu txt23">
-								Feugiat maximus neque pharetra
-							</span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21">
-									Sed feugiat
-								</a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-								<div class="price-item-mainmenu txt22">
-									$12.19
-								</div>
-							</div>
-
-							<span class="info-item-mainmenu txt23">
-								Proin lacinia nisl ut ultricies posuere nulla
-							</span>
-						</div>
-
-						<!-- Item mainmenu -->
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21">
-									Consectetur
-								</a>
-
-								<div class="line-item-mainmenu bg3-pattern"></div>
-
-								<div class="price-item-mainmenu txt22">
-									$21.89
-								</div>
-							</div>
-
-							<span class="info-item-mainmenu txt23">
-								Etiam cursus facilisis tortor
-							</span>
-						</div>
+								<?php } ?>
+						
 					</div>
 
 					<div class="wrap-item-mainmenu p-b-22">

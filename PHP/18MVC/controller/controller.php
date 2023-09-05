@@ -36,6 +36,7 @@ public function __construct()
                     break;
                     
                 case "/menu";
+                    $menus = $this->select("products");
                     require_once("view/header.php");
                     require_once("view/menu.php");
                     require_once("view/footer.php");
@@ -65,6 +66,64 @@ public function __construct()
                         // require_once("view/footer.php");
 
                     break;
+
+                         case "/admin/add-product":
+                            if(isset($_REQUEST['add']))
+                            {
+                                echo "<pre>";
+                                print_r($_REQUEST);
+                                print_r($_FILES);
+                                echo "</pre>";
+
+                                $image = "uploads/products/".time().$_FILES['image']["name"];
+                                move_uploaded_file($_FILES['image']['tmp_name'],$image);
+
+                                $data = array(
+                                    "name" => $_REQUEST['name'],
+                                    "price" => $_REQUEST['price'],
+                                    "description" => $_REQUEST['description'],
+                                    "image" => $image
+                                );
+
+                                    $this->insert("products",$data);
+
+                                // exit();
+                            }
+                            require_once("view/admin/adminheader.php");
+                            require_once("view/admin/addproduct.php");
+                            require_once("view/admin/adminfooter.php");
+
+                            break;
+
+                    case "/admin/products":
+
+                        $products = $this->select("products");
+                        // echo "<pre>";
+                        //     print_r($products);
+                        // echo "</pre>";
+                        
+                        require_once("view/admin/adminheader.php");
+                        require_once("view/admin/adminproduct.php");
+                        require_once("view/admin/adminfooter.php");
+                        if(isset($_REQUEST['delete_btn']))
+                        {
+                            $this->delete("products","$_REQUEST[delete_btn]");
+                        }
+
+                        break;
+
+
+                    case "/api":
+                        echo "<h1> Welcome to class of making api</h1>";
+                        $users = $this->select("users");
+                        $apiresponse = json_encode($users);
+                        $decode = json_decode($apiresponse);
+                        echo"<pre>";
+                        print_r( $users);
+                        print_r( $decode);
+                        echo"</pre>";
+                        print_r( $apiresponse);
+                        break;
 
                 case "/login":
 
@@ -97,6 +156,7 @@ public function __construct()
                             require_once("view/admin/adminheader.php");
                             require_once("view/admin/updateuser.php");
                             require_once("view/admin/adminfooter.php");
+
                            
                             
                         }
