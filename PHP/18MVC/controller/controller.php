@@ -144,7 +144,7 @@ public function __construct()
 
                         // print_r($_REQUEST);
                         $data = $_REQUEST;
-                        $this->login($data);
+                        $user_detail=    $this->login($data);
 
                         require_once("view/login.php");
                         break;

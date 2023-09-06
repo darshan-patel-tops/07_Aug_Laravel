@@ -1,5 +1,10 @@
 <?php
 
+
+//$total 
+//$total += $total + $cart->price($cart->quantity);
+
+
 require_once("header.php");
 echo "<pre>";
 // print_r($_REQUEST);
