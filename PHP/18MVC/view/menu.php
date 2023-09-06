@@ -4,8 +4,7 @@
 			Pato Menu
 		</h2>
 	</section>
-
-
+	
 	<!-- Main menu -->
 	<section class="section-mainmenu p-t-110 p-b-70 bg1-pattern">
 		<div class="container">
@@ -21,26 +20,31 @@
 						{
 							?>
 						
-						<div class="item-mainmenu m-b-36">
-							<div class="flex-w flex-b m-b-3">
-								<a href="#" class="name-item-mainmenu txt21">
-									<?php echo $menu->name ?>
-								</a>
-								
-								<div class="line-item-mainmenu bg3-pattern"></div>
-								
-								<div class="price-item-mainmenu txt22">
-									<img src="<?php echo $menu->image; ?>" alt="" height="50px" width="50px">
-									<?php echo $menu->price ?>
-									<!-- $29.79 -->
+						<form action="view-product" method="post">
+
+							<div class="item-mainmenu m-b-36">
+								<div class="flex-w flex-b m-b-3">
+									<!-- <a href="view-product"  class="name-item-mainmenu txt21"> -->
+										<?php echo $menu->name ?>
+									<!-- </a> -->
+									
+									<div class="line-item-mainmenu bg3-pattern"></div>
+									
+									<div class="price-item-mainmenu txt22">
+										<img src="<?php echo $menu->image; ?>" alt="" height="50px" width="50px">
+										$<?php echo $menu->price ?>
+										<!-- $29.79 -->
+									</div>
 								</div>
+								
+								<span class="info-item-mainmenu txt23">
+									<?php echo $menu->description ?>
+									<button class="ml-5" style="color: red;" name="id" value="<?php echo $menu->id; ?>">View </button>
+									<!-- Sed fermentum eros vitae eros -->
+								</span>
 							</div>
-							
-							<span class="info-item-mainmenu txt23">
-								<?php echo $menu->description ?>
-								<!-- Sed fermentum eros vitae eros -->
-							</span>
-						</div>
+
+						</form>
 								<?php } ?>
 						
 					</div>

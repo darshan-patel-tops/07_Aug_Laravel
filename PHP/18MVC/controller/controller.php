@@ -4,6 +4,7 @@
 
 <?php
 
+session_start();
 require_once("model/model.php");
 
 class controller extends model
@@ -56,6 +57,8 @@ public function __construct()
 
                             $data = $_REQUEST;
                             $this->register($data);
+                            
+        
                             // echo "<pre>";
                             // print_r($_REQUEST);
                             // echo "</pre>";
@@ -66,6 +69,18 @@ public function __construct()
                         // require_once("view/footer.php");
 
                     break;
+
+                    case "/view-product":
+
+                        // print_r($_REQUEST);
+                        $product = $this->selectwhere("products",$_REQUEST['id']);
+                        require_once("view/header.php");
+                            require_once("view/product.php");
+                            require_once("view/footer.php");
+                        // print_r($product);
+
+
+                        break;
 
                          case "/admin/add-product":
                             if(isset($_REQUEST['add']))
@@ -136,6 +151,9 @@ public function __construct()
 
                 case "/admin-dashboard":
 
+                    $user_detail = $this->selectwhere("users",13);
+                    // print_r($user_detail);
+                    // exit();
                         require_once("view/admin/adminheader.php");
                         require_once("view/admin/adminhome.php");
                         // echo "Admin Page";

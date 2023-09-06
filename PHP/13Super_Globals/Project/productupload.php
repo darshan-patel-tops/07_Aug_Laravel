@@ -21,7 +21,8 @@ if(isset($_FILES["image"]['error']))
         $_SESSION["products"][] = 
         [
             "price"=>$_REQUEST['price'],
-            "image"=>$destination
+            "image"=>$destination,
+            // "id"=>$userdata["id"]
         ];
         // $_SESSION["products"][] = [$cartdata];
         echo "<pre>";
