@@ -16,7 +16,7 @@
     <form action="" method="post">
         <span id="email_error" style="color:red;"></span>
       <input type="text" placeholder="Email or phone number" required name="email" id="email" onblur="checkemail()">
-      <input type="password" placeholder="Password" required name="password" id="password" >
+      <input type="password" placeholder="Password" required name="password" id="password"  >
       <div class="link">
         <button type="submit" class="login">Login</button>
         <a href="#" class="forgot">Forgot password?</a>
