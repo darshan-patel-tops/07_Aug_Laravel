@@ -12,8 +12,6 @@ class model
     public function __construct()
     {
 
-
-        
         try
         {
 
@@ -24,6 +22,7 @@ class model
         {
             // echo "Connection was not successful";
         }
+
     }
 
 
