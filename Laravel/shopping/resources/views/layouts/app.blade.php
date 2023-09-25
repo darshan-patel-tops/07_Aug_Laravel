@@ -447,8 +447,16 @@
                 Account
               </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/login">Sign in</a></li>
-                                    <li><a class="dropdown-item" href="/register">Signup</a></li>
+                                        @guest
+
+                                        <li><a class="dropdown-item" href="/login">Sign in</a></li>
+                                        <li><a class="dropdown-item" href="/register">Signup</a></li>
+                                        @else
+
+                                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+
+                                        @endguest
+
                                     <li><a class="dropdown-item" href="pages/forgot-password.html">Forgot Password</a></li>
                                     <li class="dropdown-submenu dropend">
                                         <a class="dropdown-item dropdown-list-group-item dropdown-toggle" href="#">

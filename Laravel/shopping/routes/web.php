@@ -21,6 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[HomeController::class,'index']);
+Route::get('/home',[HomeController::class,'index']);
 
-Route::get('/register',[AuthController::class,'index']);
+Route::get('/register',[AuthController::class,'index'])->middleware('guest');
 Route::post('/register',[AuthController::class,'store']);
+
+Route::get('/login',[AuthController::class,'login'])->middleware('guest');
+Route::post('/login',[AuthController::class,'validate_login']);
+
+Route::get('/logout',[AuthController::class,'logout']);
