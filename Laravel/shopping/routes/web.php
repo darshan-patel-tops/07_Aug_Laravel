@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BackEnd\HomeController as BackEndHomeController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,5 @@ Route::get('/login',[AuthController::class,'login'])->middleware('guest');
 Route::post('/login',[AuthController::class,'validate_login']);
 
 Route::get('/logout',[AuthController::class,'logout']);
+
+Route::get('/admin/dashboard',[BackEndHomeController::class,'index']);

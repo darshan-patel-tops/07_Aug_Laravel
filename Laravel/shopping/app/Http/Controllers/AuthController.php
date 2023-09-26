@@ -43,7 +43,21 @@ class AuthController extends Controller
         // dd($credential);
         if(Auth::attempt($credential))
         {
-            return redirect('/home')->with('message','Login success');
+            // dd(Auth::user());
+            if(Auth::user()->role_as == 1)
+            {
+                return redirect('/admin/dashboard')->with('message','Login success');
+            }
+            else if(Auth::user()->role_as == 0)
+            {
+                return redirect('/home')->with('message','Login success');
+
+            }
+            else
+            {
+
+                return redirect('/home')->with('message','Login success');
+            }
             // dd("login success");
         }
         else
