@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +43,14 @@ Route::get('authorized/google/callback', [GoogleController::class, 'handleGoogle
 
 // Route::get('auth/google', [GoogleController::class, 'signInwithGoogle']);
 // Route::get('callback/google', [GoogleController::class, 'callbackToGoogle']);
+Route::get('send-mail', function () {
+
+    $details = [
+        'title' => 'Mail from shopping app .com',
+        'body' => 'This is for testing email using smtp'
+    ];
+
+    \Mail::to('darshan.patel.tops@gmail.com')->send(new \App\Mail\MyTestMail($details));
+
+    dd("Email is Sent.");
+});

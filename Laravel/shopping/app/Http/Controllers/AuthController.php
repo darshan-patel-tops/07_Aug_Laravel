@@ -31,6 +31,12 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
+        $details = [
+            'title' => 'Welcome to our website',
+            'body' => 'This is a body of email'
+        ];
+
+        \Mail::to($request->email)->send(new \App\Mail\MyTestMail($details));
         return redirect('/login');
     }
 

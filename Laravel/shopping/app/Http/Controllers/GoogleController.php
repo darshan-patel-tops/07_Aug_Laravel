@@ -29,7 +29,13 @@ class GoogleController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'google_id'=> $user->id,
-                    'password' => encrypt('123456dummy')
+                    'password' => encrypt('123456dummy'),
+                    $details = [
+                        'title' => 'Mail from shopping app .com',
+                        'body' => 'This is for testing email using smtp'
+                    ],
+
+                    \Mail::to($user->email)->send(new \App\Mail\MyTestMail($details))
                 ]);
 
                 \Auth::login($newUser);
