@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BackEnd\HomeController as BackEndHomeController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,11 @@ Route::post('/login',[AuthController::class,'validate_login']);
 Route::get('/logout',[AuthController::class,'logout']);
 
 Route::get('/admin/dashboard',[BackEndHomeController::class,'index']);
+
+
+
+Route::get('authorized/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('authorized/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+// Route::get('auth/google', [GoogleController::class, 'signInwithGoogle']);
+// Route::get('callback/google', [GoogleController::class, 'callbackToGoogle']);

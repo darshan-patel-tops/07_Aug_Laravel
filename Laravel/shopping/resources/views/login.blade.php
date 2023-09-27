@@ -44,6 +44,11 @@
 
                 </div>
                 <div class="d-flex justify-content-between">
+                    <div class="flex items-center justify-end mt-4">
+                        <a href="{{ url('authorized/google') }}">
+                            <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" style="margin-left: 3em;">
+                        </a>
+                    </div>
                   <!-- form check -->
                   {{-- <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">

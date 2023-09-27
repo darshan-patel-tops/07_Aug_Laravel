@@ -1,0 +1,5 @@
+client id 
+764642530020-u4j478tjavlb1gcvieuici0ppj1v6m3u.apps.googleusercontent.com
+
+client secret 
+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
