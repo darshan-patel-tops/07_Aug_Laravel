@@ -28,6 +28,9 @@
 
 <div class="main-wrapper">
 
+
+
+    {{-- {{ dd(Auth::user()->name); }} --}}
 <div class="header">
 
 <div class="header-left">

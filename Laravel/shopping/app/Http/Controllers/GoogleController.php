@@ -1,9 +1,11 @@
 <?php
 namespace App\Http\Controllers;
-use Auth;
+// use Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Exception;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 class GoogleController extends Controller
 {
     public function redirectToGoogle()
@@ -20,9 +22,20 @@ class GoogleController extends Controller
 
             if($finduser){
 
-                \Auth::login($finduser);
+                Auth::login($finduser);
 
-                return redirect()->intended('home');
+                    if(Auth::user()->role_as == 1)
+                    {
+
+                        return redirect()->intended('admin/dashboard');
+                    }
+                    else
+                    {
+                        return redirect()->intended('home');
+
+                    }
+
+                // dd(Auth::user()->role_as);
 
             }else{
                 $newUser = User::create([
@@ -38,7 +51,7 @@ class GoogleController extends Controller
                     \Mail::to($user->email)->send(new \App\Mail\MyTestMail($details))
                 ]);
 
-                \Auth::login($newUser);
+                Auth::login($newUser);
 
                 return redirect()->intended('home');
             }

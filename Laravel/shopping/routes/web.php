@@ -29,12 +29,12 @@ Route::get('/home',[HomeController::class,'index']);
 Route::get('/register',[AuthController::class,'index'])->middleware('guest');
 Route::post('/register',[AuthController::class,'store']);
 
-Route::get('/login',[AuthController::class,'login'])->middleware('guest');
+Route::get('/login',[AuthController::class,'login'])->middleware('guest')->name('login');
 Route::post('/login',[AuthController::class,'validate_login']);
 
 Route::get('/logout',[AuthController::class,'logout']);
 
-Route::get('/admin/dashboard',[BackEndHomeController::class,'index']);
+Route::get('/admin/dashboard',[BackEndHomeController::class,'index'])->middleware(['auth','Admin_middleware']);
 
 
 
@@ -43,14 +43,14 @@ Route::get('authorized/google/callback', [GoogleController::class, 'handleGoogle
 
 // Route::get('auth/google', [GoogleController::class, 'signInwithGoogle']);
 // Route::get('callback/google', [GoogleController::class, 'callbackToGoogle']);
-Route::get('send-mail', function () {
+// Route::get('send-mail', function () {
 
-    $details = [
-        'title' => 'Mail from shopping app .com',
-        'body' => 'This is for testing email using smtp'
-    ];
+//     $details = [
+//         'title' => 'Mail from shopping app .com',
+//         'body' => 'This is for testing email using smtp'
+//     ];
 
-    \Mail::to('darshan.patel.tops@gmail.com')->send(new \App\Mail\MyTestMail($details));
+//     \Mail::to('darshan.patel.tops@gmail.com')->send(new \App\Mail\MyTestMail($details));
 
-    dd("Email is Sent.");
-});
+//     dd("Email is Sent.");
+// });
