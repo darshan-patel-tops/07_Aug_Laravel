@@ -10,7 +10,9 @@ print_r($arr1);
 print_r($arr2);
 
 print_r(array_merge($arr1,$arr2));
-
+foreach ($arr1 as $key => $value) {
+    echo " Key ".$key." value ".$value;
+}
 
 
 ?>
