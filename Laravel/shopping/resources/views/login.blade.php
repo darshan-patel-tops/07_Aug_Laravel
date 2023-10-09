@@ -56,7 +56,7 @@
                       Remember me
                     </label>
                   </div> --}}
-                  {{-- <div> Forgot password? <a href="forgot-password.html">Reset It</a></div> --}}
+                  <div> Forgot password? <a href="/forgot-password">Reset It</a></div>
                 </div>
                 <!-- btn -->
                 <div class="col-12 d-grid"> <button type="submit" class="btn btn-primary">Sign In</button>

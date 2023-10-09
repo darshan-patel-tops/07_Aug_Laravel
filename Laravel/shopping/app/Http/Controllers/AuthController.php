@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -80,5 +81,55 @@ class AuthController extends Controller
         Auth::logout();
         Session::flush();
         return redirect('/login');
+    }
+
+
+
+    public function forgetpassword()
+    {
+        return view('Backend.forget');
+    }
+    public function storeforget(Request $request)
+    {
+        // dd($request);
+        $password = DB::table('password_reset_tokens')->insert([
+            'email'=>$request->email,
+            'token'=>$request->_token,
+        ]);
+
+        \Mail::to($request->email)->send(new \App\Mail\ForgetPassword($request));
+        return redirect('/login');
+
+        // return view('Backend.forget');
+    }
+
+    public function resetpassword($token)
+    {
+        return view('Backend.reset',compact('token'));
+        // dd($token,"from controller");
+    }
+    public function storenewpassword($token,Request $request)
+    {
+
+        $reset_password = DB::table('password_reset_tokens')->select('email','token')
+        ->where('token','=',$token)->get();
+        // dd($reset_password[0]->email);
+        // dd($reset_password->email);
+
+
+        $reset_user = User::where('email',$reset_password[0]->email)->get();
+
+        $reset_user[0]->password = $request->password;
+        $reset_user[0]->save();
+
+        $reset_password = DB::table('password_reset_tokens')->select('email','token')
+        ->where('token','=',$token)->delete();
+
+        return redirect('/login');
+        // $reset_password[0]->destroy();
+        // dd($reset_user[0]->password);
+        // dd("Save password",$token);
+        // return view('Backend.reset',compact('token'));
+        // dd($token,"from controller");
     }
 }
