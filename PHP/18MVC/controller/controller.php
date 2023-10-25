@@ -244,7 +244,7 @@ public function __construct()
         else
         {
             
-            echo "Inside else";
+            // echo "Inside else";
             header("location:home");
         }
    

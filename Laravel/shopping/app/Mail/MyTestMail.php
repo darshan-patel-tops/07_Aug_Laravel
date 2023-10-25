@@ -20,9 +20,11 @@ class MyTestMail extends Mailable
     public function __construct($details)
     {
         $this->details = $details;
+        // dd($details);
     }
     public function build()
     {
+        // dd("inside function");
         return $this->subject('Mail from shopping app.com')
                     ->view('emails.myTestMail');
     }
@@ -41,6 +43,7 @@ class MyTestMail extends Mailable
      */
     public function content(): Content
     {
+        // dd("function 2");
         return new Content(
             view: 'emails.myTestMail',
         );

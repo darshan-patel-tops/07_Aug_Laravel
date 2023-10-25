@@ -41,6 +41,7 @@ function checkusername()
     // console.log();
     var username = ""
     username = document.getElementById("username").value;
+    // username = document.getElementsByName("username").value;
 
     console.log(username);
 
