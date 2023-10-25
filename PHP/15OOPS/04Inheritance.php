@@ -72,7 +72,8 @@ $car->engine();
 "name"=>"vishal",
 "name"=>"vishal",
 
-]
+];
+
 foreach ($variable as $key => $value) 
 {
     # code...

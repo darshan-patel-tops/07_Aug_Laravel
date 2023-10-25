@@ -30,7 +30,7 @@ $obj->random();
 
 
 
-
+// destruct is called at last
 
 
 

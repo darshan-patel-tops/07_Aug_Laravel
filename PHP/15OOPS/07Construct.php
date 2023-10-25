@@ -18,7 +18,7 @@ class mobile
 
 
 $obj = new mobile;
-
+//it is invoked by default when created
 
 
 
