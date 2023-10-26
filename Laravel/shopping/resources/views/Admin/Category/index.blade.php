@@ -1,0 +1,63 @@
+@extends('layouts.app2')
+
+
+@section('content')
+
+{{-- {{ dd($category) }} --}}
+@if (session('message'))
+<div class="alert alert-primary" role="alert">
+    {{ session('message') }}
+</div>
+@endif
+    <div class="card-body">
+        <a href="/admin/add-category" class="btn btn-primary mb-4">
+                Add Category
+        </a>
+        <div class="table-responsive">
+            <table class="table mb-2">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Visible</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($category as $item)
+
+                    <tr class="table-primary">
+                        <td>{{ $item->name }}</td>
+                        <td>
+                        <img src="{{ $item->image }}" alt="No image found"></td>
+                        <td>{{ $item->description }}</td>
+                        <td>
+                            @if ($item->visible === 0)
+                            <h4>
+                                <span class="badge badge-danger ">Not Visible</span>
+                            </h4>
+                            @else
+                            <h4>
+                                <span class="badge badge-success ">Visible</span>
+                            </h4>
+                            @endif
+                            {{-- {{ $item->visible }} --}}
+
+                        </td>
+                        <td>
+                            <a href="{{ url('/admin/update-category/'.$item->id) }}" class="btn btn-sm btn-primary">Update</a>
+                            <a href="{{ url('/admin/delete-category/'.$item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                        {{-- <td><img src="" alt=""></td>
+                        <td>Description</td>
+                        <td>Visible</td>
+                        <td>Update</td> --}}
+                    </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+@endsection

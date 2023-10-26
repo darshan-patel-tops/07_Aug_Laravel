@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BackEnd\HomeController as BackEndHomeController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -47,6 +48,14 @@ Route::get('/admin/dashboard',[BackEndHomeController::class,'index'])->middlewar
 
 Route::get('authorized/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('authorized/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+Route::get('/admin/all-category',[CategoryController::class,'index']);
+Route::get('/admin/add-category',[CategoryController::class,'add']);
+Route::post('/admin/add-category',[CategoryController::class,'store']);
+
+
+
+
 
 // Route::get('auth/google', [GoogleController::class, 'signInwithGoogle']);
 // Route::get('callback/google', [GoogleController::class, 'callbackToGoogle']);
