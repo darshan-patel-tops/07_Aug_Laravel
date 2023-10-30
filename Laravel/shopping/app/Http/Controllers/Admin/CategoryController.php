@@ -24,11 +24,25 @@ class CategoryController extends Controller
     {
         // dd($request);
 
+
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            // dd($file);
+            $ext = $file->getClientOriginalExtension();
+            // $source = $file->getClientOriginalName();
+
+            $image =  'upload/category/';
+            $source =  $image.time().'.'.$ext;
+            $file->move($image,$source);
+            // dd("$image");
+        }
+
         CategoryA::create([
             'name'=>$request->name,
             'description'=>$request->description,
             'visible'=>$request->visible,
-            'image'=>time(),
+            'image'=>$source,
         ]);
 
 //             $data = new CategoryA;
@@ -52,5 +66,58 @@ class CategoryController extends Controller
 // ]);
         return redirect('/admin/all-category')->with('message',"Category Added Successfully");
             // dd("inside function");
+    }
+
+
+    public function update($id)
+    {
+        $data = CategoryA::findOrFail($id);
+        // dd($data);
+        return view('Admin.Category.edit',compact('data'));
+
+
+    }
+    public function update_change(Request $request,$id)
+    {
+        $update = CategoryA::findOrFail($id);
+        // dd($update);
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            // dd($file);
+            $ext = $file->getClientOriginalExtension();
+            // $source = $file->getClientOriginalName();
+
+            $image =  'upload/category/';
+            $source =  $image.time().'.'.$ext;
+            $file->move($image,$source);
+            // dd("$image");
+            $update->name = $request->name;
+            $update->description = $request->description;
+            $update->visible = $request->visible;
+            $update->image = $source;
+            $update->save();
+        }
+        $update->name = $request->name;
+        $update->description = $request->description;
+        $update->visible = $request->visible;
+        $update->save();
+        // $update->image = $request->image;
+        // $update::update([
+        //     'name'=>$request->name,
+        //     'description'=>$request->description,
+        //     'visible'=>$request->visible,
+        //     'image'=>$request->image,
+        // ]);
+        return redirect('/admin/all-category')->with('message',"Category Updated Successfully");
+
+    }
+    public function delete(Request $request,$id)
+    {
+        $data = CategoryA::findOrFail($id);
+        $data->delete();
+        return redirect('/admin/all-category')->with('message',"Category Deleted Successfully");
+
+        // dd($request);
     }
 }

@@ -2,6 +2,7 @@
 
 
 @section('content')
+{{-- {{ dd($category[0]==null) }} --}}
 
 {{-- {{ dd($category) }} --}}
 @if (session('message'))
@@ -25,37 +26,44 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($category as $item)
 
+
+                    @forelse ($category as $item)
                     <tr class="table-primary">
                         <td>{{ $item->name }}</td>
                         <td>
-                        <img src="{{ $item->image }}" alt="No image found"></td>
-                        <td>{{ $item->description }}</td>
-                        <td>
-                            @if ($item->visible === 0)
-                            <h4>
-                                <span class="badge badge-danger ">Not Visible</span>
-                            </h4>
-                            @else
-                            <h4>
-                                <span class="badge badge-success ">Visible</span>
-                            </h4>
-                            @endif
-                            {{-- {{ $item->visible }} --}}
+                            <img src="/{{ $item->image }}" height="100px" width="100px" alt="No image found"></td>
+                            <td>{{ $item->description }}</td>
+                            <td>
+                                @if ($item->visible === 0)
+                                <h4>
+                                    <span class="badge badge-danger ">Not Visible</span>
+                                </h4>
+                                @else
+                                <h4>
+                                    <span class="badge badge-success ">Visible</span>
+                                </h4>
+                                @endif
+                            </td>
 
-                        </td>
-                        <td>
-                            <a href="{{ url('/admin/update-category/'.$item->id) }}" class="btn btn-sm btn-primary">Update</a>
-                            <a href="{{ url('/admin/delete-category/'.$item->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                        </td>
-                        {{-- <td><img src="" alt=""></td>
-                        <td>Description</td>
-                        <td>Visible</td>
-                        <td>Update</td> --}}
-                    </tr>
-                    @endforeach
+                            <td>
+                                <a href="{{ url('/admin/update-category/'.$item->id) }}" class="btn btn-sm btn-primary">Update</a>
+                                <form action="/admin/delete-category/{{$item->id  }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-sm btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
 
+                        </tr>
+
+                        @empty
+                        <tr>
+                            <td colspan="5">No Category Available</td>
+                        </tr>
+                        @endforelse
                 </tbody>
             </table>
         </div>

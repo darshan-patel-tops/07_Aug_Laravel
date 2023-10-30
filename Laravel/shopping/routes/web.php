@@ -49,9 +49,23 @@ Route::get('/admin/dashboard',[BackEndHomeController::class,'index'])->middlewar
 Route::get('authorized/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('authorized/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
-Route::get('/admin/all-category',[CategoryController::class,'index']);
-Route::get('/admin/add-category',[CategoryController::class,'add']);
-Route::post('/admin/add-category',[CategoryController::class,'store']);
+
+Route::prefix('admin')->middleware(['auth','Admin_middleware'])->group(function () {
+
+    Route::get('/all-category',[CategoryController::class,'index']);
+    Route::get('/add-category',[CategoryController::class,'add']);
+    Route::post('/add-category',[CategoryController::class,'store']);
+    Route::get('/update-category/{id}',[CategoryController::class,'update']);
+    // Route::post('/update-category',[CategoryController::class,'update_change']);
+    Route::put('/update-category/{id}',[CategoryController::class,'update_change']);
+    // Route::patch('/update-category',[CategoryController::class,'update_change']);
+    Route::delete('/delete-category/{id}',[CategoryController::class,'delete']);
+
+
+});
+
+
+
 
 
 
