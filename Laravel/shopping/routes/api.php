@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackEnd\HomeController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/users',[HomeController::class,'GetUsersData']);
+
+
+Route::post('/addemployee',[EmployeeController::class,'add']);
