@@ -103,7 +103,7 @@ class CategoryController extends Controller
         $update->visible = $request->visible;
         $update->save();
         // $update->image = $request->image;
-        // $update::update([
+        // CategoryA::where('id',$id)->update([
         //     'name'=>$request->name,
         //     'description'=>$request->description,
         //     'visible'=>$request->visible,

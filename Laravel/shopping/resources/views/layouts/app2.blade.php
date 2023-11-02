@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('AdminAssets/assets/plugins/morris/morris.css') }}">
 
     <link rel="stylesheet" href="{{ asset('AdminAssets/assets/css/style.css') }}">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> --}}
 </head>
 
 <body>
@@ -360,6 +361,23 @@
                         <li>
                             <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a>
                         </li>
+
+                    </ul>
+
+                    <ul class="sidebar-vertical">
+
+                        <li class="menu-title">
+                            <span>Employee</span>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="#"><i class="la la-users"></i> <span> Employee</span> <span
+                                    class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a class="active" href="{{ url('admin/all-employee') }}">All Employee</a></li>
+                            </ul>
+                        </li>
+
 
                     </ul>
                 </div>
@@ -740,6 +758,7 @@
     {{-- <script src="{{ asset('AdminAssets/assets/js/theme-settings.js') }}"></script> --}}
 
     <script src="{{ asset('AdminAssets/assets/js/app.js') }}"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
 </body>
 
 <!-- Mirrored from smarthr.dreamguystech.com/html/template/admin-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Aug 2023 06:22:33 GMT -->
